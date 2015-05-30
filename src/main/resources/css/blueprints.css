@@ -1,0 +1,21 @@
+
+
+/*
+    The large Blueprint icon that is displayed in the Create dialog.
+*/
+.icon-week-report-blueprint.large {
+    /*
+        This is the data URI for the blank-page Blueprint icon - you'll want to update it to the URI for your Blueprint's 48x48 icon.
+    */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAA3NCSVQICAjb4U/gAAAAXVBMVEX///+vr6+tra2mpqalpaWdnZ3///+UlJT7+/v39/f19fXz8/Pr6+vp6enn5+fj4+Ozs7OqqqqmpqalpaWFhYWRkZGNjY2Li4uJiYl+fn56enp4eHh2dnZycnJwcHBeRFztAAAAH3RSTlMAM1WImbvd3e7u7u7u7u7u7u7u7u7/////////////xBl9GgAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAUdEVYdENyZWF0aW9uIFRpbWUANi8xLzEzOKlF0AAAAMNJREFUSInt1tsSgiAUhWGsxNJOHsoQ1n7/xyxLaYSNY01XDf81nwoXsoUYShW4skTwNYDp3LQm0it2fQrUp610y4nAC4XSW91H1EKvGQBzDIDiCmwY0Pnf8wJy13ICHbu+B7LgxBxg3xEG+/6wbp4Ig/MgdLIIXMiWLQL5W2ARsBXmQyB1BH8EKNDvQNx03HTc9HdA85diGASuXdve+d0r1POggpqAx+hQMaPD2KEE0gl4Difam07GDNAIp8D4M6Ts8++7/VXclnc6pwAAAABJRU5ErkJggg==');
+}
+
+/*
+    The small Blueprint icon that is displayed next to the Index page in the Space Sidebar.
+*/
+.acs-nav-item.blueprint.week-report .icon {
+    /*
+        This is the data URI for the default Blueprint icon - you'll want to update it to the URI for your Blueprint's 16x16 icon.
+    */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAA3NCSVQICAjb4U/gAAAAP1BMVEX///+1tbWwsLCtra3////4+PjZ2dnT09PR0dHPz8+rq6uhoaGLi4uVlZWTk5ODg4OAgIB6enp4eHhycnJwcHBM2T3EAAAAFXRSTlMAIiJV3e7u7u7u7u7u//////////8cgV5CAAAACXBIWXMAAAsSAAALEgHS3X78AAAAFHRFWHRDcmVhdGlvbiBUaW1lADYvMS8xMzipRdAAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAYUlEQVQYlY2OSw6AMAgFqaL1A2oL9z+rpSXGGE2c5WMmAQA6UpVC7qFBKTIiD5p8kRErurgjjGag4tocQTcK+T4Y4okdrWJ5Nz4Sq34n2zOZLmGsA+1zfR05HmRDIHGUApwekAgNl/JgjAAAAABJRU5ErkJggg==');
+}

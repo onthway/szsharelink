@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+
+
+
+
+{namespace Confluence.Blueprints.Plugin.weekreport}
+
+/**
+ * How-to-use page for the wizard.
+ */
+{template .howToUse}
+<h2>{getText('com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.how-to-use.heading')}</h2>
+<p>{getText('com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.how-to-use.content')}</p>
+{/template}
+
+/**
+ * A form page for the Wizard. This form will be processed by the Blueprints Wizard JS automatically.
+ *
+ * @param preRenderText some text added by the pre-render Wizard JS hook
+*/
+{template .wizardPage0}
+<form action="#" method="post" id="wizard-page0-form" class="aui">
+    <fieldset>
+        <div class="field-group">
+            <label for="week-report-blueprint-page-title">
+                {getText('com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.title.label')}
+                <span class="aui-icon icon-required">{getText('$WIZARD_FORM_FIELD_REQUIRED_I18N')}</span>
+            </label>
+            <input id="week-report-blueprint-page-title" class="text" type="text" name="title" title="title"
+                   placeholder="{getText('com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.title.placeholder')}" maxlength="255">
+            <div class="error"></div>
+        </div>
+        <div class="field-group">
+            <label>
+                {getText('com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.jsvar.label')}
+            </label>
+            <input class="text" type="text" name="wizardVariable" title="title"
+                   placeholder="{getText('com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.jsvar.placeholder')}" maxlength="255">
+            <div class="error"></div>
+        </div>
+    </fieldset>
+    <p>{$preRenderText}</p>
+</form>
+{/template}

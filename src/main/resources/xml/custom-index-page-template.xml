@@ -1,0 +1,30 @@
+
+<p>
+    <at:i18n at:key="com.atlassian.confluence.plugins.szsharelink.szsharelink.custom-index-page-template.content.text" />
+</p>
+
+<at:declarations>
+<at:var at:name="templateLabel"/>
+<at:var at:name="analyticsKey"/>
+<at:var at:name="spaceKey"/>
+<at:var at:name="blueprintKey"/>
+<at:var at:name="indexKey"/>
+<at:var at:name="pageFromTemplateTitle"/>
+</at:declarations>
+
+<p style="text-align: right;">
+<ac:macro ac:name="create-from-template">
+    <ac:parameter ac:name="blueprintModuleCompleteKey"><at:var at:name="blueprintKey"/></ac:parameter>
+    <ac:parameter ac:name="buttonLabel"><at:var at:name="pageFromTemplateTitle"/></ac:parameter>
+    <ac:parameter ac:name="spaceKey"><at:var at:name="spaceKey"/></ac:parameter>
+    <ac:parameter ac:name="templateName"><at:var at:name="blueprintKey"/></ac:parameter>
+</ac:macro>
+</p>
+<hr/>
+<p>
+<ac:macro ac:name="content-report-table">
+    <ac:parameter ac:name="labels"><at:var at:name="templateLabel"/></ac:parameter>
+    <ac:parameter ac:name="analytics-key"><at:var at:name="analyticsKey"/></ac:parameter>
+    <ac:parameter ac:name="spaces"><at:var at:name="spaceKey"/></ac:parameter>
+</ac:macro>
+</p>

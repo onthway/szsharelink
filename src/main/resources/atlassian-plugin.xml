@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="szsharelink"/>
+  <!-- add our web resources -->
+  <web-resource key="szsharelink-resources" name="szsharelink Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="szsharelink.css" location="/css/szsharelink.css"/>
+    <resource type="download" name="szsharelink.js" location="/js/szsharelink.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>szsharelink</context>
+  </web-resource>
+  <!-- publish our component -->
+  <component key="myPluginComponent" class="com.atlassian.confluence.plugins.szsharelink.MyPluginComponentImpl" public="true">
+    <interface>com.atlassian.confluence.plugins.szsharelink.MyPluginComponent</interface>
+  </component>
+  <!-- import from the product container -->
+  <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties"/>
+  <component key="blueprint-created-listener" class="com.atlassian.confluence.plugins.szsharelink.szsharelink.BlueprintCreatedListener" name="Blueprint Created Event Listener"/>
+  <blueprint key="week-report-blueprint" name="week report Blueprint" i18n-name-key="my-plugin-module.name" index-key="week-report" index-template-key="custom-index-page-template" i18n-index-title-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.index.page.title" how-to-use-template="Confluence.Blueprints.Plugin.weekreport.howToUse">
+    <!--
+        This Blueprint module and the two modules following it will display a web-item in the Create dialog that can be used
+        to generate new Confluence content from the specified content-template.
+    -->
+    <description key="my-plugin-module.description">The MyPluginModule Plugin</description>
+    <!--
+        The content-template-key element(s) are the moduleKey(s) of the <content-template>(s) that will be used to
+        create a page / content from. These elements are required so that the templates can be edited from the
+        Space/Site Templates-admin screens.
+        -->
+    <content-template ref="week-report-template"/>
+    <content-template ref="week-report-template-1"/>
+    <!--
+            The dialog-wizard element defines a set of Wizard pages that will be shown when the User selects this
+            Blueprint. Pages will be shown to the user in the order they are defined, but this can be changed in the
+            Wizard JavaScript hooks (see hello-blueprint-wizard.js).
+    -->
+    <dialog-wizard key="week-report-wizard">
+      <!--
+            dialog-page defines a single page of the Wizard. This page can contain a description that is displayed
+             at the right-hand-side of it. This element contains the following attributes:
+
+            - id - the id of this page, used with JavaScript hooks
+            - template-key - the fully-qualified path to a Soy template provided by this plugin (see web-resource)
+            - title-key - the i18n key for the title that will be displayed at the top of the Wizard page
+            - description-header-key - (optional) if specified, the i18n key for the heading above the description
+            - description-content-key - (optional) if specified, the i18n key for the description content. This
+                                        is required for the Description panel to appear in the page.
+            - last - (optional) if set to "true", the Wizard will be complete when this page is submitted. This is
+                     useful if the Wizard can have multiple paths. The last defined dialog-page gets this value set
+                     to "true" by default.
+        -->
+      <dialog-page id="page0" template-key="Confluence.Blueprints.Plugin.weekreport.wizardPage0" title-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.title" description-header-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.desc.header" description-content-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.wizard.page0.desc.content"/>
+    </dialog-wizard>
+  </blueprint>
+  <content-template key="week-report-template" i18n-name-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.week-report-template.name">
+    <!--
+        This Content Template provides the Confluence Storage Format XHTML that the Blueprint above will be created from.
+    -->
+    <description key="com.atlassian.confluence.plugins.szsharelink.szsharelink.week-report-template.desc">Contains Storage-format XML used by the week report Blueprint</description>
+    <resource name="template" type="download" location="xml/week-report-template.xml"/>
+    <context-provider class="com.atlassian.confluence.plugins.szsharelink.szsharelink.ContentTemplateContextProvider"/>
+  </content-template>
+  <content-template key="week-report-template-1" i18n-name-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.week-report-template-1.name">
+    <!--
+        This Content Template provides the Confluence Storage Format XHTML that the Blueprint above will be created from.
+    -->
+    <description key="com.atlassian.confluence.plugins.szsharelink.szsharelink.week-report-template-1.desc">Contains Storage-format XML used by the week report Blueprint</description>
+    <resource name="template" type="download" location="xml/week-report-template-1.xml"/>
+    <context-provider class="com.atlassian.confluence.plugins.szsharelink.szsharelink.ContentTemplateContextProvider"/>
+  </content-template>
+  <content-template key="custom-index-page-template" i18n-name-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.custom-index-page-template.name">
+    <!--
+        This Content Template provides the Confluence Storage Format XHTML that the Blueprint above will be created from.
+    -->
+    <description key="com.atlassian.confluence.plugins.szsharelink.szsharelink.custom-index-page-template.desc">Contains Storage-format XML used by the week report Blueprint's Index page</description>
+    <resource name="template" type="download" location="xml/custom-index-page-template.xml"/>
+    <context-provider class="com.atlassian.confluence.plugins.szsharelink.szsharelink.ContentTemplateContextProvider"/>
+  </content-template>
+  <web-item name="week report" i18n-name-key="com.atlassian.confluence.plugins.szsharelink.szsharelink.blueprint.display.name" key="week-report-blueprint-web-item" section="system.create.dialog/content" weight="1000">
+    <description key="com.atlassian.confluence.plugins.szsharelink.szsharelink.blueprint.display.desc">Creates pages from the week report blueprint.</description>
+    <styleClass>icon-week-report-blueprint large</styleClass>
+    <param name="blueprintKey" value="week-report-blueprint"/>
+  </web-item>
+  <web-resource name="My Web Resource" i18n-name-key="my-web-resource.name" key="my-web-resource">
+    <description key="my-web-resource.description">The My Web Resource Plugin</description>
+    <resource name="blueprints.css" type="download" location="css/blueprints.css"/>
+    <resource name="dialog-wizard.js" type="download" location="js/dialog-wizard.js"/>
+    <resource name="templates-soy.js" type="download" location="soy/my-templates.soy"/>
+    <dependency>com.atlassian.confluence.plugins.confluence-create-content-plugin:resources</dependency>
+    <context>atl.general</context>
+    <context>atl.admin</context>
+    <transformation extension="js">
+      <transformer key="jsI18n"/>
+    </transformation>
+    <transformation extension="soy">
+      <transformer key="soyTransformer">
+        <functions>com.atlassian.confluence.plugins.soy:soy-core-functions</functions>
+      </transformer>
+    </transformation>
+  </web-resource>
+</atlassian-plugin>

@@ -1,0 +1,25 @@
+
+
+
+
+
+<p>
+    <at:i18n at:key="com.atlassian.confluence.plugins.szsharelink.szsharelink.week-report-template.content.text" />
+</p>
+<p>
+    <!-- This placeholder is replaced by user-entered text when typed in -->
+    <ac:placeholder><at:i18n at:key="com.atlassian.confluence.plugins.szsharelink.szsharelink.template.placeholder" /></ac:placeholder>
+</p>
+<p>
+    <!-- This placholder starts a User @mention when clicked in -->
+    <ac:placeholder ac:type="mention"><at:i18n at:key="com.atlassian.confluence.plugins.szsharelink.szsharelink.template.mention.placeholder" /></ac:placeholder>
+</p>
+<p>
+    <at:var at:name="wizardVariable" />
+</p>
+<p>
+    <at:var at:name="variableA" />
+</p>
+<p>
+    <at:var at:name="variableB" at:rawxhtml="true" />
+</p>
